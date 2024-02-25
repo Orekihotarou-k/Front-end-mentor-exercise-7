@@ -1,196 +1,160 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* root */
+:root {
+    --clr-primary-Dark-cyan: #3c8067;
+    --clr-primary-Cream: #f2ebe3;
+    
+    --clr-neutral-dark-blue: #1c232b;
+    --clr-neutral-Dark-grayish-blue: #6c7289;
+    --clr-neutral-White: #ffffff;
+
+    --ff-headings: "Fraunces", serif; 
+    --ff-body: "Montserrat", sans-serif; 
+    --fw-500: 500;
+    --fw-700: 700;
+    --fs-heading: 2rem;
+    --fs-body: 0.875rem;
+}
+
+
+/* reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Fraunces', serif;
-    font-family: 'Montserrat', sans-serif;
 }
 
-:root{
-    /* primary */
-    --clr-primary-dark-cyan: hsl(158, 36%, 37%);
-    --clr-primary-cream: hsl(30, 38%, 92%);
-
-    /* neutral */
-    --clr-neutral-dark-blue: hsl(212, 21%, 14%);
-    --clr-neutral-dark-grayish: hsl(228, 12%, 48%);
-    --clr-neutral-white: hsl(0, 0%, 100%);
-
-    /* font weights */
-    --m-700: 700;
-    --m-500: 500;
-    --f-700: 700;
+h1, h2, h3 {
+    line-height: 1.1;
 }
 
-body{
-    background: var(--clr-primary-cream);
-    font-size: 14px;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-/* main{
-    width: 50%;
-    margin: 0 auto;
-} */
+button {
+    font: inherit;
+}
 
-.container{
-    width: 50%;
-    margin: 0 auto;
+body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-500);
+    color: var(--clr-neutral-Dark-grayish-blue);
+    background: var(--clr-primary-Cream);
+}
+
+/* helper classes */
+.flex {
     display: flex;
+    align-items: center;
+}
+
+
+/* typography */
+.title {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.sub-title, .price-amount {
+    font-family: var(--ff-headings);
+    font-size: var(--fs-heading);
+    font-weight: var(--fw-700);
+}
+
+.sub-title {
+    color: var(--clr-neutral-dark-blue);
+}
+
+.price-amount {
+    color: var(--clr-primary-Dark-cyan);
+}
+
+.previous-amount {
+    text-decoration: line-through;
+    margin: 0 !important;
+}
+
+
+/* components */
+.purchase-button {
     justify-content: center;
-    margin-top: 22vh;
+    width: 100%;
+    gap: .5rem;
+    border-radius: .4rem;
+    color: var(--clr-neutral-White);
+    padding: .8rem;
+    border: none;
+    background: var(--clr-primary-Dark-cyan);
 }
 
-.container img{
-    width: 300px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+
+/* layout */
+.pricing {
+    gap: 1.2rem;
 }
 
-.img-mobile{
+.container {
+    justify-content: center;
+    height: 100dvh;
+}
+
+.card-container {
+    width: 41em;
+    background: var(--clr-neutral-White);
+    border-radius: .6rem;
+}
+
+.card-container > * {
+    flex-basis: 100%;
+}
+
+
+/* general styles */
+.mobile-img {
     display: none;
 }
 
-.product-description{
-    width: 300px;
-    background: var(--clr-neutral-white);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+.perfume-img {
+    border-top-left-radius: .6rem;
+    border-bottom-left-radius: .6rem;
 }
 
-.desc-text{
+.card-description {
     padding: 2rem;
 }
 
-.desc-text h4{
-    font-size: 14px;
-    font-weight: var(--m-500);
-    letter-spacing: 3px;
-    color: var(--clr-neutral-dark-grayish);
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-.desc-text h2{
-    width: 80%;
-    font-size: 30px;
-    font-weight: var(--f-700);
-    font-family: 'Fraunces', serif;
-    line-height: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.desc-text p{
-    width: 100%;
-    font-size: 14px;
-    font-weight: var(--m-500);
-    line-height: 22px;
-    color: var(--clr-neutral-dark-grayish);
-}
-
-.pricing{
-    margin: 2rem 0;
-}
-
-.pricing p{
-    display: flex;
-    align-items: center;
-    font-size: 35px;
-    font-weight: var(--f-700);
-    color: var(--clr-primary-dark-cyan);
-    font-family: 'Fraunces', serif;
-}
-
-.pricing p span{
-    font-size: 14px;
-    font-weight: var(--m-500);
-    color: var(--clr-neutral-dark-grayish);
-    text-decoration: line-through;
-    margin-left: 20px;
-}
-
-.product-description a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--clr-neutral-white);
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    background: var(--clr-primary-dark-cyan);
-}
-
-.product-description a:hover{
-    background: hsl(158, 36%, 17%);
-}
-
-.product-description a img{
-    width: 16px;
-    margin-right: 10px;
-}
-
-.attribution{
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.attribution a{
-    text-decoration: none;
+.card-description  * + * {
+    margin-top: 1rem;
 }
 
 
-/* mediaquerry for mobile less than 700px */
-
-@media screen and (max-width:700px){
-    /* main{
-        max-width: 100%;
-        margin: 0 auto;
-
-    } */
-
-    .container{
-        display: block;
-        width: 100%;
-        margin: 0;
-    }
-
-    .container img{
+/* media query */
+@media screen and (max-width: 575px) {
+    .perfume-img {
         display: none;
-        border-radius: 0;
     }
-    
-    .container .img-mobile{
+
+    .mobile-img {
         display: block;
-        width: 90%;
-        margin: 2rem auto 0;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-    }
-
-    .product-description{
-        width: 90%;
-        margin: 0 auto;
         border-radius: 0;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    
-    .desc-text h2{
-        width: 100%;
-        font-size: 30px;
-        font-weight: var(--f-700);
-        font-family: 'Fraunces', serif;
-        line-height: 2rem;
-        margin-bottom: 1.5rem;
+        border-top-left-radius: .6rem;
+        border-top-right-radius: .6rem;
     }
 
-    .attribution{
-        margin-bottom: 4rem;
+    .container {
+        padding: 1rem;
     }
 
-    
-
+    .card-container {
+        flex-direction: column;
+    }
 }
-
-
-
